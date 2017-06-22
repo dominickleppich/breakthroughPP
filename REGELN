@@ -1,0 +1,31 @@
+Definitionen:
+- Rechteckiges Spielfeld (Standard 8x8, Reihen sind Zahlen, Spalten sind Buchstaben)
+- Spielfeld mit Parameter DIM_X, DIM_Y erstellen koennen (2 <= DIM_X <= 26, 6 <= DIM_Y <= 26)
+- R = (DIM_Y+3)/4 (ganzzahlig dividiert) Reihen von Spielsteinen pro Farbe
+- Farben sind Rot und Blau
+- Um Mehrfachspiele fuer den KI-Wettbewerb besser moeglich zu machen ist folgende Anforderung sinnvoll:
+  Vor Beginn eines Spiels werden beide Spieler mithilfe der Methode "init" initialisiert. So werden ihnen 
+  Spielbrettdimensionen und Farbe bekannt gemacht.
+- Ein leerer Zug (null) ist gueltig und wird das Aufgabe des Spielers gewertet.
+
+Regeln:
+- Gespielt wird auf einem rechteckigen Spielfeld frei waehlbarer Seitenlaengen DIM_X und DIM_Y
+- Die beiden Spieler haben je gleichviele rote bzw. blaue Spielsteine die jeweils die Reihen 1,2,...,R (rot) 
+  sowie N,N-1,...,N-R+1 (blau) fuellen
+- Es beginnt immer der rote Spieler
+- Abwechselnd machen nun beide Spieler je einen Zug. In jedem Zug wird ein Stein des Spieler auf das direkt vor ihm liegende, 
+  freie Feld oder ein diagonal vor ihm liegendes freies Feld oder eines mit einem gegnerischen Stein gezogen. 
+  Ist das diagonal vor ihm liegende Feld leer, wird einfach dorthin gezogen. Befindet sich dort ein gegnerischer Stein, 
+  wird dieser geschlagen und aus dem Spiel entfernt
+- Es gewinnt der Spieler, der zuerst einen seiner eigenen Steine auf die erste Startreihe des Gegners bewegt (1 oder N)
+- Der leere Zug wird als Aufgabe des Spielers gewertet
+
+Anmerkungen:
+- Der Status ERROR wurde nie verwendet und sorgt nur fuer Verwirrung (wurde von einigen Gruppen beim KI-Wettbewerb verwendet 
+  und fuehrte dann zu Problemen) -> habe ich entfernt
+- Status, Position und Move waren etwas inkosistent bezueglich der getter und setter
+  -> Ich habe allen Klassen getter und setter gegeben, nun kann alles wie auch immer genutzt werden
+
+Anforderungen fuer den KI-Wettbewerb:
+- Alle Klassen die ueber Netzwerk arbeiten duerfen nicht veraendert werden (ist klar)
+- Es duerfen keine eigenen Exceptions geworfen werden (das hat im letzten Jahr zu Fehlern gefuehrt)
