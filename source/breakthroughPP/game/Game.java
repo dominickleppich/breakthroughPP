@@ -49,7 +49,7 @@ public class Game {
 		settings = new Settings();
 
 		settings.put("timelimit_move", new Setting(Setting.Type.Long, 5000L));
-		settings.put("timelimit_player", new Setting(Setting.Type.Long, 1000L));
+		settings.put("timelimit_player", new Setting(Setting.Type.Long, 10000L));
 
 		settings.put("move_timeout", new Setting(Setting.Type.Integer, 1000));
 	}
